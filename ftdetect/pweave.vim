@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead *.Pnw,*.Plw,*.texw set ft=pweave
+autocmd BufNewFile,BufRead *.Pnw,*.Plw,*.pnw,*.plw,*.texw set ft=pweave
