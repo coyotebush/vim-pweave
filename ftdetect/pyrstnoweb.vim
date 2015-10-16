@@ -1,1 +1,1 @@
-au BufNewFile,BufRead *.Pnw set filetype=pynoweb
+autocmd BufNewFile,BufRead *.rstw set filetype=pyrstnoweb
