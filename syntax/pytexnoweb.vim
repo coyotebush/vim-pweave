@@ -1,5 +1,7 @@
 " Vim syntax file
 " Language:    Pweave (python latex) noweb File
+" Remarks:     Based on the R noweb syntax file by Johannes Ranke included in
+"              the Vim distribution.
 " Maintainer:  Grant Goodyear <g2boojum@grantgoodyear.org>
 " Last Change: 20120429
 " Based on: rnoweb.vim
@@ -21,6 +23,7 @@ unlet b:current_syntax
 
 syn cluster texMatchGroup add=@pytexnoweb
 syn cluster texMathMatchGroup add=pytexnowebSexpr
+syn cluster texMathMatchGroup add=pytexnowebInline
 syn cluster texEnvGroup add=@pytexnoweb
 syn cluster texFoldGroup add=@pytexnoweb
 syn cluster texDocGroup		add=@pytexnoweb
@@ -31,18 +34,18 @@ syn cluster texSubSectionGroup		add=@pytexnoweb
 syn cluster texSubSubSectionGroup	add=@pytexnoweb
 syn cluster texParaGroup		add=@pytexnoweb
 
-" Highlighting of R code using an existing r.vim syntax file if available {{{1
+" Highlighting of Python code using an existing python.vim syntax file if available {{{1
 syn include @pytexnowebPy syntax/python.vim
 syn region pytexnowebChunk matchgroup=pytexnowebDelimiter start="^<<.*>>=" matchgroup=pytexnowebDelimiter end="^@" contains=@pytexnowebPy,pytexnowebChunkReference,pytexnowebChunk fold keepend
-syn match pytexnowebChunkReference "^<<.*>>$" contained
+syn match pytexnowebChunkReference "^<<.*>>=$" contained
 syn region pytexnowebSexpr matchgroup=Delimiter start="\\Sexpr{" matchgroup=Delimiter end="}" contains=@pytexnowebPy
-syn region pytexnowebinline matchgroup=Delimiter start="<%" matchgroup=Delimiter end="%>" contains=@pytexnowebPy
+syn region pytexnowebInline matchgroup=Delimiter start="<%" matchgroup=Delimiter end="%>" contains=@pytexnowebPy
 
 " Sweave options command {{{1
 syn region pytexnowebSweaveopts matchgroup=Delimiter start="\\SweaveOpts{" matchgroup=Delimiter end="}"
 
 " pytexnoweb Cluster {{{1
-syn cluster pytexnoweb contains=pytexnowebChunk,pytexnowebChunkReference,pytexnowebDelimiter,pytexnowebSexpr,pytexnowebSweaveopts,pytexnowebinline
+syn cluster pytexnoweb contains=pytexnowebChunk,pytexnowebChunkReference,pytexnowebDelimiter,pytexnowebInline,pytexnowebSexpr,pytexnowebSweaveopts
 
 " Highlighting {{{1
 hi def link pytexnowebDelimiter	Delimiter
