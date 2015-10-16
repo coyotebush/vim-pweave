@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead *.Plw set filetype=pweave
+autocmd BufNewFile,BufRead *.texw set filetype=pytexnoweb
