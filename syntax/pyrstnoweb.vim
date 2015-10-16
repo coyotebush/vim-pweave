@@ -21,21 +21,21 @@ runtime syntax/rst.vim
 unlet b:current_syntax
 
 " Highlighting of python code using an existing r.vim syntax file if available {{{1
-syn include @pynowebPy syntax/python.vim
-syn region pynowebChunk matchgroup=pynowebDelimiter start="^<<.*>>=" matchgroup=pynowebDelimiter end="^@" contains=@pynowebPy,pynowebChunkReference,pynowebChunk fold keepend
-syn match pynowebChunkReference "^<<.*>>$" contained
-syn region pynowebSexpr matchgroup=Delimiter start="\\Sexpr{" matchgroup=Delimiter end="}" contains=@pynowebPy
+syn include @pyrstnowebPy syntax/python.vim
+syn region pyrstnowebChunk matchgroup=pyrstnowebDelimiter start="^<<.*>>=" matchgroup=pyrstnowebDelimiter end="^@" contains=@pyrstnowebPy,pyrstnowebChunkReference,pyrstnowebChunk fold keepend
+syn match pyrstnowebChunkReference "^<<.*>>$" contained
+syn region pyrstnowebSexpr matchgroup=Delimiter start="\\Sexpr{" matchgroup=Delimiter end="}" contains=@pyrstnowebPy
 
 " Sweave options command {{{1
-syn region pynowebSweaveopts matchgroup=Delimiter start="\\SweaveOpts{" matchgroup=Delimiter end="}"
+syn region pyrstnowebSweaveopts matchgroup=Delimiter start="\\SweaveOpts{" matchgroup=Delimiter end="}"
 
-" pynoweb Cluster {{{1
-syn cluster pynoweb contains=pynowebChunk,pynowebChunkReference,pynowebDelimiter,pynowebSexpr,pynowebSweaveopts
+" pyrstnoweb Cluster {{{1
+syn cluster pyrstnoweb contains=pyrstnowebChunk,pyrstnowebChunkReference,pyrstnowebDelimiter,pyrstnowebSexpr,pyrstnowebSweaveopts
 
 " Highlighting {{{1
-hi def link pynowebDelimiter	Delimiter
-hi def link pynowebSweaveOpts Statement
-hi def link pynowebChunkReference Delimiter
+hi def link pyrstnowebDelimiter	Delimiter
+hi def link pyrstnowebSweaveOpts Statement
+hi def link pyrstnowebChunkReference Delimiter
 
-let   b:current_syntax = "pynoweb"
+let   b:current_syntax = "pyrstnoweb"
 " vim: foldmethod=marker:
