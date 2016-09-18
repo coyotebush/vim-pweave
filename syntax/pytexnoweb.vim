@@ -38,7 +38,6 @@ syn cluster texParaGroup		add=@pytexnoweb
 syn include @pytexnowebPy syntax/python.vim
 syn region pytexnowebChunk matchgroup=pytexnowebDelimiter start="^<<.*>>=" matchgroup=pytexnowebDelimiter end="^@" contains=@pytexnowebPy,pytexnowebChunkReference,pytexnowebChunk fold keepend
 syn match pytexnowebChunkReference "^<<.*>>$" contained
-syn region pytexnowebSexpr matchgroup=Delimiter start="\\Sexpr{" matchgroup=Delimiter end="}" contains=@pytexnowebPy
 syn region pytexnowebInline matchgroup=Delimiter start="<%" matchgroup=Delimiter end="%>" contains=@pytexnowebPy
 
 " pytexnoweb Cluster {{{1

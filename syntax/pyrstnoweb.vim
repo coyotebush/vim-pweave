@@ -24,7 +24,7 @@ unlet b:current_syntax
 syn include @pyrstnowebPy syntax/python.vim
 syn region pyrstnowebChunk matchgroup=pyrstnowebDelimiter start="^<<.*>>=" matchgroup=pyrstnowebDelimiter end="^@" contains=@pyrstnowebPy,pyrstnowebChunkReference,pyrstnowebChunk fold keepend
 syn match pyrstnowebChunkReference "^<<.*>>$" contained
-syn region pyrstnowebSexpr matchgroup=Delimiter start="\\Sexpr{" matchgroup=Delimiter end="}" contains=@pyrstnowebPy
+syn region pyrstnowebInline matchgroup=Delimiter start="<%" matchgroup=Delimiter end="%>" contains=@pyrstnowebPy
 
 " pyrstnoweb Cluster {{{1
 syn cluster pyrstnoweb contains=pyrstnowebChunk,pyrstnowebChunkReference,pyrstnowebDelimiter,pyrstnowebSexpr
