@@ -41,15 +41,11 @@ syn match pytexnowebChunkReference "^<<.*>>$" contained
 syn region pytexnowebSexpr matchgroup=Delimiter start="\\Sexpr{" matchgroup=Delimiter end="}" contains=@pytexnowebPy
 syn region pytexnowebInline matchgroup=Delimiter start="<%" matchgroup=Delimiter end="%>" contains=@pytexnowebPy
 
-" Sweave options command {{{1
-syn region pytexnowebSweaveopts matchgroup=Delimiter start="\\SweaveOpts{" matchgroup=Delimiter end="}"
-
 " pytexnoweb Cluster {{{1
-syn cluster pytexnoweb contains=pytexnowebChunk,pytexnowebChunkReference,pytexnowebDelimiter,pytexnowebInline,pytexnowebSexpr,pytexnowebSweaveopts
+syn cluster pytexnoweb contains=pytexnowebChunk,pytexnowebChunkReference,pytexnowebDelimiter,pytexnowebInline,pytexnowebSexpr
 
 " Highlighting {{{1
 hi def link pytexnowebDelimiter	Delimiter
-hi def link pytexnowebSweaveOpts Statement
 hi def link pytexnowebChunkReference Delimiter
 
 let   b:current_syntax = "pytexnoweb"

@@ -20,21 +20,17 @@ syn case match
 runtime syntax/rst.vim
 unlet b:current_syntax
 
-" Highlighting of python code using an existing r.vim syntax file if available {{{1
+" Highlighting of python code using an existing python.vim syntax file if available {{{1
 syn include @pyrstnowebPy syntax/python.vim
 syn region pyrstnowebChunk matchgroup=pyrstnowebDelimiter start="^<<.*>>=" matchgroup=pyrstnowebDelimiter end="^@" contains=@pyrstnowebPy,pyrstnowebChunkReference,pyrstnowebChunk fold keepend
 syn match pyrstnowebChunkReference "^<<.*>>$" contained
 syn region pyrstnowebSexpr matchgroup=Delimiter start="\\Sexpr{" matchgroup=Delimiter end="}" contains=@pyrstnowebPy
 
-" Sweave options command {{{1
-syn region pyrstnowebSweaveopts matchgroup=Delimiter start="\\SweaveOpts{" matchgroup=Delimiter end="}"
-
 " pyrstnoweb Cluster {{{1
-syn cluster pyrstnoweb contains=pyrstnowebChunk,pyrstnowebChunkReference,pyrstnowebDelimiter,pyrstnowebSexpr,pyrstnowebSweaveopts
+syn cluster pyrstnoweb contains=pyrstnowebChunk,pyrstnowebChunkReference,pyrstnowebDelimiter,pyrstnowebSexpr
 
 " Highlighting {{{1
 hi def link pyrstnowebDelimiter	Delimiter
-hi def link pyrstnowebSweaveOpts Statement
 hi def link pyrstnowebChunkReference Delimiter
 
 let   b:current_syntax = "pyrstnoweb"
